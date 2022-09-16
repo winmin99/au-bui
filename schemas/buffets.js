@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 
-const BuffetSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    required: true,
-  },
+const { Schema } = mongoose;
+const Buffets = new Schema({
+
   name: {
     type: String,
     required: true,
@@ -27,5 +25,5 @@ const BuffetSchema = new mongoose.Schema({
     required: true,
   },
 });
+module.exports = mongoose.model("Buffets", Buffets);
 
-module.exports = mongoose.model("Buffets", BuffetSchema);

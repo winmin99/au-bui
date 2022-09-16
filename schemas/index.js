@@ -1,22 +1,35 @@
-// 몽고디비 연결부 역할
 const mongoose = require("mongoose");
-// const mongo_Access = process.env.MONGO_DB_ACCESS;
 
-// 이 주소 (mongo_local)로 db에 연결
 const connect = () => {
-  mongoose
-    .connect(mongo_Access, { ignoreUndefined: true })
-    .catch((err) => console.error(err));
+  const id = "test";
+  // const password = 'test';
+  const password = "test";
+  const dbName = "basic";
+  const uri = `mongodb+srv://${id}:${password}@cluster0.7cb6hlf.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+  mongoose.connect(
+    uri,
+    {
+      useNewUrlParser: true,
+      ignoreUndefined: true,
+      useUnifiedTopology: true,
+    },
+    (error) => {
+      if (error) console.log("Mongo DB Connect Error");
+      else console.log("Mongo Db Connect Success");
+    }
+  );
 };
 
-// 몽고디비 연결 되는 동안 에러가 발생하면 에러 처리
+// 몽구스 Connection에 이벤트 리스너를 삽입
+// 에러 발생 시 에러 내용을 기록
 mongoose.connection.on("error", (err) => {
-  console.error("몽고디비 연결 에러", err);
+  console.error("Mongo DB Connect Error", err);
 });
 
-// mongoDB 연결 객체를 파일 외부에 공개 -> app.js에서 사용
+// 연결 종료 시 재연결을 시도한다.
+mongoose.connection.on("disconnected", () => {
+  console.error("Mongo Db DisConnect. reconnect.");
+  connect();
+});
+
 module.exports = connect;
-
-comment.js
-
-const mongoose = require("mongoose");

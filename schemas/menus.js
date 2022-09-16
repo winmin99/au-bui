@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
-
-const MenuSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    required: true,
-  },
+const { Schema } = mongoose;
+const Menus = new Schema({
   buffet_id: {
     type: String,
     required: true,
@@ -12,12 +8,12 @@ const MenuSchema = new mongoose.Schema({
   todayMenu: {
     type: String,
     required: true,
-  },  
+  },
   servingDate: {
     type: Date,
-    default: Date.now,
-    required: true,
+    // default: Date.now,
   },
 });
 
-module.exports = mongoose.model("Menus", MenuSchema);
+module.exports = mongoose.model("Menus", Menus);
+
