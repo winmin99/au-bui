@@ -5,21 +5,13 @@ const Menus = new Schema({
     type: String,
     required: true,
   },
-  buffetName: {
-    type: String,
-    required: true,
-  },
   todayMenu: {
     type: String,
     required: true,
   },
-  tomorrowMenu: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
+  servingDate: {
     type: Date,
-    default: Date.now,
+    // default: Date.now,
   },
 });
 
