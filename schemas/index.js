@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const connect = () => {
   const id = "test";
   // const password = 'test';
-  const password = "test";
-  const dbName = "basic";
-  const uri = `mongodb+srv://${id}:${password}@cluster0.7cb6hlf.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+  const password = "winmin99";
+  const dbName = "ahbui";
+  const uri = `mongodb+srv://${id}:${password}@cluster0.ltn3m.mongodb.net/${dbName}?retryWrites=true&w=majority`;
   mongoose.connect(
     uri,
     {

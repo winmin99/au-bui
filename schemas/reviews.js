@@ -11,8 +11,9 @@ const Reviews = new Schema({
     required: true,
   },
   starScore: {
-    type: String,
+    type: Number,
     required: true,
+    default: 0,
   },
   review: {
     type: String,

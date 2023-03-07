@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const buffetsRouter = require("./buffets.routes");
-const menusRouter = require("./menus.routes");
-const reviewsRouter = require("./reviews.routes");
-const usersRouter = require("./users.routes");
+const buffetsRouter = require("./buffets.routes.js");
+const menusRouter = require("./menus.routes.js");
+const reviewsRouter = require("./reviews.routes.js");
+const usersRouter = require("./users.routes.js");
 
 router.use("/buffets", buffetsRouter);
 router.use("/menus", menusRouter);
